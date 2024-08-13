@@ -30,14 +30,12 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping
-  
     public List<Customer> listCustomer(){
         return this.customerService.findAll();
     }
 
     @GetMapping("/{id}")
-    
-    public ResponseEntity<Customer> view(@PathVariable Long id){
+    public ResponseEntity<Customer> view(@PathVariable String id){
         Optional<Customer> optionalCustomer  = customerService.findById(id);
         if (optionalCustomer.isPresent()){
             return ResponseEntity.ok(optionalCustomer.orElseThrow());
@@ -46,7 +44,6 @@ public class CustomerController {
     }
 
     @PostMapping
-  
     public ResponseEntity<?> create(@RequestBody Customer customer, BindingResult result){
         if (result.hasFieldErrors()) {
             return validation(result);
@@ -55,8 +52,7 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-   
-    public ResponseEntity<Customer> update(@PathVariable Long id, @RequestBody Customer customer){
+    public ResponseEntity<Customer> update(@PathVariable String id, @RequestBody Customer customer){
         Optional<Customer> customerOptional = this.customerService.update(id, customer);
         if (customerOptional.isPresent()){
             return ResponseEntity.status(HttpStatus.CREATED).body(customerOptional.orElseThrow());
@@ -65,8 +61,7 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-
-    public ResponseEntity<Customer> delete(@PathVariable Long id){
+    public ResponseEntity<Customer> delete(@PathVariable String id){
         //Customer customer = new Customer();
         //customer.setId(id);
         Optional<Customer> optionalCustomer = this.customerService.delete(id);

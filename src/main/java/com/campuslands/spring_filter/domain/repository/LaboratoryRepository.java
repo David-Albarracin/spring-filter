@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LaboratoryRepository extends JpaRepository<Laboratory, Long> {
-    // Define repository methods here
 }

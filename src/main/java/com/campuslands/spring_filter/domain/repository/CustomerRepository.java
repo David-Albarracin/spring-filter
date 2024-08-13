@@ -6,6 +6,5 @@ import com.campuslands.spring_filter.persistence.entity.Customer;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    // Define repository methods here
+public interface CustomerRepository extends JpaRepository<Customer, String> {
 }

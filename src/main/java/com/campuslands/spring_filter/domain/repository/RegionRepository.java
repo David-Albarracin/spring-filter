@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, String> {
-    // Define repository methods here
 }

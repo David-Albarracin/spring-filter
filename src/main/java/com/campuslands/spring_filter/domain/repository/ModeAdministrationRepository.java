@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ModeAdministrationRepository extends JpaRepository<ModeAdministration, Long> {
-    // Define repository methods here
 }

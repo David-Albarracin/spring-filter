@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UnitMeasurementRepository extends JpaRepository<UnitMeasurement, Long> {
-    // Define repository methods here
 }

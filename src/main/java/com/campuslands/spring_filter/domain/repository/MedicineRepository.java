@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MedicineRepository extends JpaRepository<Medicine, Long> {
-    // Define repository methods here
 }

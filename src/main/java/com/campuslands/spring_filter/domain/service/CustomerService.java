@@ -13,12 +13,12 @@ import com.campuslands.spring_filter.persistence.entity.Customer;
 
 @Service
 public class CustomerService {
-    // Define service methods here
+   
     @Autowired
     CustomerRepository customerRepository;
     
     @Transactional
-    public Optional<Customer> delete(Long id) {
+    public Optional<Customer> delete(String id) {
         Optional<Customer> optionalCustomer = this.customerRepository.findById(id);
         optionalCustomer.ifPresent(
             CustomerFound -> {
@@ -32,7 +32,7 @@ public class CustomerService {
         return (List<Customer>) this.customerRepository.findAll();
     }
 
-    public Optional<Customer> findById(Long id) {
+    public Optional<Customer> findById(String id) {
         return this.customerRepository.findById(id);
     }
 
@@ -40,7 +40,7 @@ public class CustomerService {
         return this.customerRepository.save(Customer);
     }
 
-    public Optional<Customer> update(Long id, Customer customer) {
+    public Optional<Customer> update(String id, Customer customer) {
         Optional<Customer> optionalCustomer = this.customerRepository.findById(id);
         if (optionalCustomer.isPresent()) {
             Customer customerItem = optionalCustomer.orElseThrow();
