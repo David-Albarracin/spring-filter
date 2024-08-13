@@ -1,14 +1,11 @@
-
 package com.campuslands.spring_filter.persistence.entity;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-// import jakarta.persistence.GeneratedValue;
-// import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -27,30 +24,30 @@ import lombok.ToString;
 @NoArgsConstructor
 @Entity
 @ToString
-@Table(name="customer")
-public class Customer {
-
+@Table(name="farmacy")
+public class Farmacy {
     @Id
-    //@GeneratedValue(strategy = GenerationType.)
-    @Column(name = "idcustomer")
-    String idcustomer;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idfarmacy")
+    Long idfarmacy;
 
-    String namecustomer;
+    String namefarmacy;
 
-    String lastnamecustomer;
+    String addressfarmacy;
 
-    String emailcustomer;
+    @Column(name= "longfarmacy")
+    Long longfarmacy;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    Date birthdate;
-
-    float lon;
-
-    float latitud;
+    Long latfarmacy;
 
     @ManyToOne
     @JoinColumn(name = "codecity")
-    //@JsonBackReference
-    private City codecitycustomer;
+    @JsonBackReference
+    private City codecityfarm;
+    
+
+    String logofarmacy;
+
+
 
 }

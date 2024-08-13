@@ -44,8 +44,13 @@ public class CustomerService {
         Optional<Customer> optionalCustomer = this.customerRepository.findById(id);
         if (optionalCustomer.isPresent()) {
             Customer customerItem = optionalCustomer.orElseThrow();
-            //SETS
-            
+            customerItem.setNamecustomer(customer.getNamecustomer());
+            customerItem.setLastnamecustomer(customer.getLastnamecustomer());
+            customerItem.setCodecitycustomer(customer.getCodecitycustomer());
+            customerItem.setEmailcustomer(customer.getEmailcustomer());
+            customerItem.setBirthdate(customer.getBirthdate());
+            customerItem.setLon(customer.getLon());
+            customerItem.setLatitud(customer.getLatitud());
             return Optional.of(this.customerRepository.save(customerItem));
         }
         return optionalCustomer;

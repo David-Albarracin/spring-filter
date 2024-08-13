@@ -35,7 +35,7 @@ public class CustomerController {
         return this.customerService.findAll();
     }
 
-    @GetMapping("/<built-in function id>")
+    @GetMapping("/{id}")
     
     public ResponseEntity<Customer> view(@PathVariable Long id){
         Optional<Customer> optionalCustomer  = customerService.findById(id);
@@ -54,7 +54,7 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer));
     }
 
-    @PutMapping("/<built-in function id>")
+    @PutMapping("/{id}")
    
     public ResponseEntity<Customer> update(@PathVariable Long id, @RequestBody Customer customer){
         Optional<Customer> customerOptional = this.customerService.update(id, customer);
@@ -64,7 +64,7 @@ public class CustomerController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/<built-in function id>")
+    @DeleteMapping("/{id}")
 
     public ResponseEntity<Customer> delete(@PathVariable Long id){
         //Customer customer = new Customer();
